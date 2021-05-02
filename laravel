@@ -1,0 +1,96 @@
+basic passport and model, middleware
+
+
+https://www.toptal.com/laravel/passport-tutorial-auth-user-access#:~:text=Laravel%20Passport%20is%20an%20OAuth,on%20an%20OAuth%202.0%20server.
+
+
+https://blog.logrocket.com/laravel-passport-a-tutorial-and-example-build/
+
+
+model and seeder command
+
+php artisan make:model Product_Master -ms
+
+php artisan make:model Product_Master -ms
+
+fresh migrate command
+
+php artisan migrate:fresh 
+
+seed specific table
+
+php artisan db:seed --class=CreateProductMastersTable
+
+
+
+seed 2 more rows array of insert and seeder update and create date
+
+ Schema::create('product__masters', function (Blueprint $table) {
+            $table->id();
+            $table->string("key");
+            $table->string("key1");
+            $table->string("key2");
+            $table->string("Value");
+            $table->string("status");
+            $table->string("desc");
+            $table->timestamps();
+        });
+
+
+
+        DB::table('product__masters')->insert(
+
+           [ [
+            'key' => "Allow-origin",
+            'key1' => "",
+            'key2' => "",
+            'Value' => "*",
+            'status' => "active",
+            'desc' => "Allowed domains",
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+
+            ],
+
+            [
+                'key' => "IP",
+                'key1' => "Whitelisted",
+                'key2' => "",
+                'Value' => "0.0.0.0-0.0.0.0",
+                'status' => "active",
+                'desc' => "IP's Allowed for API",
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+    
+            ],
+            
+            ]
+        
+
+
+
+get variable types
+
+        Log::info('gettype '.gettype($data));
+
+displaying Log all types
+
+
+        Log::info('gettype '.json_encode($data));
+
+
+
+removing slashers
+
+  stripslashes($value)
+
+
+search array with words return keys
+
+  $exists = array_search(stripslashes($value),$origin_after_set);
+
+
+search array with words return boolean values
+
+  $exists = in_array(stripslashes($value),$origin_after_set);
+
