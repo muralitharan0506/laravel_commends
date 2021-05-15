@@ -94,3 +94,36 @@ search array with words return boolean values
 
   $exists = in_array(stripslashes($value),$origin_after_set);
 
+
+access route parametter inside middleware
+
+Route::get('/{username}', function() {
+    return view('profile');
+});
+
+Route::get('/{username}',  [
+     'middleware' => 'ProfileMiddleware',
+     function () {
+        return view('welcome');
+}]);
+
+$route = $request->route('username');
+
+    public function handle($request, Closure $next)
+    {
+        $routes = ["faq", "support", "help"];
+        $route = $request->route('username');
+
+    // Redirect to custom page if it doesn't relate to a profile
+        if (in_array($route, $routes)) {
+            return new Response(view($route));
+        }
+
+        return $next($request);
+    }
+
+
+$request->route()->parameters();
+
+$request->route('parameter_name');
+
