@@ -127,3 +127,9 @@ $request->route()->parameters();
 
 $request->route('parameter_name');
 
+task schudle and commend 
+https://www.positronx.io/laravel-cron-job-task-scheduling-tutorial-with-example/
+https://www.itsolutionstuff.com/post/task-scheduling-with-cron-job-in-laravel-58example.html
+
+
+
